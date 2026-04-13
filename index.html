@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | E-commerce product page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobileNav">
+    <button class="close-btn" id="closeMenu" aria-label="Close menu">
+      <img src="./images/icon-close.svg" alt="">
+    </button>
+    <ul>
+      <li><a href="#">Collections</a></li>
+      <li><a href="#">Men</a></li>
+      <li><a href="#">Women</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-left">
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <img src="./images/icon-menu.svg" alt="">
+      </button>
+      <a href="#" class="logo">
+        <img src="./images/logo.svg" alt="Sneakers logo">
+      </a>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header-right">
+      <div class="cart-wrapper">
+        <button class="cart-btn" id="cartBtn" aria-label="View cart">
+          <img src="./images/icon-cart.svg" alt="">
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <!-- Cart Dropdown -->
+        <div class="cart-dropdown" id="cartDropdown">
+          <h3>Cart</h3>
+          <div class="cart-body" id="cartBody">
+            <div class="cart-empty" id="cartEmpty">
+              <p>Your cart is empty.</p>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+          </div>
+          <div class="cart-checkout" id="cartCheckout" style="display:none">
+            <button class="btn-checkout">Checkout</button>
+          </div>
+        </div>
+      </div>
+      <div class="user-wrapper">
+        <button class="avatar-btn" id="avatarBtn" aria-label="User profile">
+          <img src="./images/image-avatar.png" alt="User avatar" class="avatar">
+        </button>
+        <!-- User Panel -->
+        <div class="user-panel" id="userPanel">
+          <div class="user-panel-header">
+            <img src="./images/image-avatar.png" alt="User avatar" class="user-panel-avatar">
+            <div>
+              <p class="user-panel-name">Alex Johnson</p>
+              <p class="user-panel-email">alex@sneakers.com</p>
+            </div>
+            <button class="user-panel-close" id="userPanelClose" aria-label="Close panel">
+              <img src="./images/icon-close.svg" alt="">
+            </button>
+          </div>
+          <div class="user-panel-divider"></div>
+          <ul class="user-panel-menu">
+            <li><a href="#"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>My Profile</a></li>
+            <li><a href="#"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 3a3 3 0 110 6 3 3 0 010-6zm6 13H6v-.5c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"/></svg>Orders</a></li>
+            <li><a href="#"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>Wishlist</a></li>
+            <li><a href="#"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.49.49 0 00-.59-.22l-2.39.96a7.02 7.02 0 00-1.62-.94l-.36-2.54a.484.484 0 00-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.48.48 0 00-.59.22L2.74 8.87a.47.47 0 00.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.47.47 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.37 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.57 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.47.47 0 00-.12-.61l-2.01-1.58zM12 15.6a3.6 3.6 0 110-7.2 3.6 3.6 0 010 7.2z"/></svg>Settings</a></li>
+          </ul>
+          <div class="user-panel-divider"></div>
+          <button class="user-panel-logout"><svg viewBox="0 0 24 24"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4a2 2 0 00-2 2v14a2 2 0 002 2h8v-2H4V5z"/></svg>Sign Out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="product-container">
+
+      <!-- Gallery -->
+      <section class="gallery" id="gallery">
+        <div class="main-image-wrapper">
+          <img src="./images/image-product-1.jpg" alt="Product image" class="main-image" id="mainImage">
+          <button class="gallery-nav prev" id="prevBtn" aria-label="Previous image">
+            <img src="./images/icon-previous.svg" alt="">
+          </button>
+          <button class="gallery-nav next" id="nextBtn" aria-label="Next image">
+            <img src="./images/icon-next.svg" alt="">
+          </button>
+        </div>
+        <div class="thumbnails" id="thumbnails">
+          <button class="thumb active" data-index="0" aria-label="Product image 1">
+            <img src="./images/image-product-1-thumbnail.jpg" alt="Thumbnail 1">
+          </button>
+          <button class="thumb" data-index="1" aria-label="Product image 2">
+            <img src="./images/image-product-2-thumbnail.jpg" alt="Thumbnail 2">
+          </button>
+          <button class="thumb" data-index="2" aria-label="Product image 3">
+            <img src="./images/image-product-3-thumbnail.jpg" alt="Thumbnail 3">
+          </button>
+          <button class="thumb" data-index="3" aria-label="Product image 4">
+            <img src="./images/image-product-4-thumbnail.jpg" alt="Thumbnail 4">
+          </button>
+        </div>
+      </section>
+
+      <!-- Product Info -->
+      <section class="product-info" id="productInfo">
+        <p class="brand">Sneaker Company</p>
+        <h1 class="product-title">Fall Limited Edition Sneakers</h1>
+        <p class="product-desc">
+          These low-profile sneakers are your perfect casual wear companion. Featuring a
+          durable rubber outer sole, they'll withstand everything the weather can offer.
+        </p>
+        <div class="pricing">
+          <div class="price-row">
+            <span class="price-current">$125.00</span>
+            <span class="discount-badge">50%</span>
+          </div>
+          <span class="price-original">$250.00</span>
+        </div>
+        <div class="actions">
+          <div class="quantity-control">
+            <button class="qty-btn" id="decreaseQty" aria-label="Decrease quantity">
+              <img src="./images/icon-minus.svg" alt="">
+            </button>
+            <span class="qty-value" id="qtyValue">0</span>
+            <button class="qty-btn" id="increaseQty" aria-label="Increase quantity">
+              <img src="./images/icon-plus.svg" alt="">
+            </button>
+          </div>
+          <button class="btn-add-cart" id="addToCart">
+            <img src="./images/icon-cart.svg" alt="" class="cart-icon-white">
+            Add to cart
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Product image lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
+        <img src="./images/icon-close.svg" alt="">
+      </button>
+      <div class="lightbox-main-wrapper">
+        <button class="gallery-nav prev" id="lightboxPrev" aria-label="Previous image">
+          <img src="./images/icon-previous.svg" alt="">
+        </button>
+        <img src="./images/image-product-1.jpg" alt="Product image" class="lightbox-main-image" id="lightboxImage">
+        <button class="gallery-nav next" id="lightboxNext" aria-label="Next image">
+          <img src="./images/icon-next.svg" alt="">
+        </button>
+      </div>
+      <div class="lightbox-thumbs" id="lightboxThumbs">
+        <button class="thumb active" data-index="0" aria-label="Product image 1">
+          <img src="./images/image-product-1-thumbnail.jpg" alt="Thumbnail 1">
+        </button>
+        <button class="thumb" data-index="1" aria-label="Product image 2">
+          <img src="./images/image-product-2-thumbnail.jpg" alt="Thumbnail 2">
+        </button>
+        <button class="thumb" data-index="2" aria-label="Product image 3">
+          <img src="./images/image-product-3-thumbnail.jpg" alt="Thumbnail 3">
+        </button>
+        <button class="thumb" data-index="3" aria-label="Product image 4">
+          <img src="./images/image-product-4-thumbnail.jpg" alt="Thumbnail 4">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast">Item added to cart</div>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </footer>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
